@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo_app/views/widgets/custom_appbar.dart';
+import 'package:todo_app/views/widgets/custom_note_item.dart';
 
 class NotesviewBody extends StatelessWidget {
   const NotesviewBody({super.key});
@@ -14,7 +14,7 @@ class NotesviewBody extends StatelessWidget {
           child: Column(
             children: [
               CustomAppBar(),
-              NoteItem(),
+              Expanded(child: NotesListView()),
             ],
           ),
         ),
@@ -23,61 +23,18 @@ class NotesviewBody extends StatelessWidget {
   }
 }
 
-class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+class NotesListView extends StatelessWidget {
+  const NotesListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 24, left: 16, bottom: 16),
-      decoration: BoxDecoration(
-        color: Colors.teal,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          
-          ListTile(
-            title: const Padding(
-              padding:   EdgeInsets.only(bottom: 16),
-              child:   Text(
-                'Flutter Tips',
-                style: TextStyle(
-                  fontSize: 26,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            
-            subtitle: Text(
-              'Build Your Carerr with tharwat samy',
-              style:
-                  TextStyle(fontSize: 20, color: Colors.black.withOpacity(.6)),
-            ),
-            trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  FontAwesomeIcons.trash,
-                  color: Colors.black,
-                  size: 24,
-                )),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 32),
-            child: Text(
-              'Mar 6,2024',
-              style: TextStyle(
-                color: Colors.black.withOpacity(.6),
-                fontSize: 16,
-              ),
-            ),
-          ),
-        ],
-      ),
+    return ListView.builder(
+      itemBuilder:  (context, index) {
+        return const  Padding(
+          padding:   EdgeInsets.only(bottom: 12),
+          child:   NoteItem(),
+        );
+      },
     );
   }
 }
