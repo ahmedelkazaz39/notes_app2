@@ -13,9 +13,6 @@ class CustomTextField extends StatelessWidget {
       cursorColor: kPrimaryColor,
       maxLines: maxline,
       decoration: InputDecoration(
-        // contentPadding:
-        //     EdgeInsets.symmetric(vertical: 5.0), // Adjust vertical padding
-
         hintText: hint,
         hintStyle: const TextStyle(
           color: kPrimaryColor,
