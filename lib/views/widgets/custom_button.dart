@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/constants.dart';
 
+import '../../constants.dart';
+ 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key});
 
